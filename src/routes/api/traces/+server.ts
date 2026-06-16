@@ -23,7 +23,7 @@ export const GET: RequestHandler = async ({ url }) => {
 
 export const DELETE: RequestHandler = async ({ request }) => {
   if (!request) {
-    traceStore.clear()
+    traceStore.clearTraces()
     return json({ success: true, deletedCount: null, mode: 'all' })
   }
 
@@ -47,6 +47,6 @@ export const DELETE: RequestHandler = async ({ request }) => {
     }
   }
 
-  traceStore.clear()
+  traceStore.clearTraces()
   return json({ success: true, deletedCount: null, mode: 'all' })
 }
