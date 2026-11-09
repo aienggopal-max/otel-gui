@@ -1,10 +1,16 @@
+<div align="center">
+    <a href="#"><img src="src/lib/assets/logo.svg" alt="otel-gui logo" width="80" /></a>
+</div>
+
 # otel-gui
 
 otel-gui is a local OpenTelemetry viewer for traces, logs, and metrics. It accepts OTLP over HTTP in JSON or Protobuf and updates the browser as telemetry arrives. It includes a trace waterfall, correlated logs, metrics charts, and a service map. Telemetry is stored in memory by default.
 
 This repository is owned by [aienggopal-max](https://github.com/aienggopal-max). It is a copy of [metafab/otel-gui](https://github.com/metafab/otel-gui), originally created by Fabrice Marguerie. The imported commit attribution was rewritten for this copy. The upstream repository records the original authors and contributors.
 
-## Quick start
+[Quick start](#quick-start) · [Screenshots](#screenshots) · [Features](#features)
+
+## Quick Start
 
 Install Node.js 22.17 or newer and pnpm 11.27.0.
 
@@ -27,9 +33,19 @@ On Windows, run the demo in PowerShell.
 .\demo-ecommerce.ps1
 ```
 
-See the [sample data guide](samples/SAMPLE_TRACES.md) for additional examples.
+See the [sample data guide](./samples/SAMPLE_TRACES.md) for additional examples.
 
-## Sending traces
+## Features
+
+- Inspect span waterfalls, correlate logs with traces, and map service dependencies.
+- Explore metric time series, histograms, and individual data points.
+- Import and export trace and log data as OTLP JSON.
+
+## Screenshots
+
+![Trace list](static/docs/screenshots/trace-list.png)
+
+## Sending Traces
 
 Configure your SDK to use an OTLP/HTTP exporter and set its base endpoint to `http://localhost:4318`. With a shared OTLP base URL, exporters append `/v1/traces`, `/v1/logs`, or `/v1/metrics` for each signal.
 
@@ -44,12 +60,12 @@ Add `http://localhost:4318/mcp` as a Streamable HTTP MCP server in your client. 
 
 ## Documentation
 
-- [HTTP API](docs/http-api.md) and [OpenAPI specification](static/openapi.yaml)
-- [Environment settings](.env.example) and [optional persistence](docs/enterprise-persistence-module.md)
+- [HTTP API guide](docs/http-api.md) and [OpenAPI specification](static/openapi.yaml)
+- [Environment settings](./.env.example) and [optional persistence](docs/enterprise-persistence-module.md)
 - [Testing guide](docs/testing.md)
 
 Run `pnpm run check` for type checking, `pnpm run test` for the test suite, and `pnpm run build` for a production build. Start the built server with `node build`.
 
 ## License
 
-The project is [MIT licensed](LICENSE). The vendored OpenTelemetry Protocol definitions retain their copyright headers and [Apache 2.0 license](proto/opentelemetry/LICENSE).
+The project is [MIT licensed](./LICENSE). The vendored OpenTelemetry Protocol definitions retain their copyright headers and [Apache 2.0 license](https://github.com/aienggopal-max/otel-gui/blob/main/proto/opentelemetry/LICENSE).
